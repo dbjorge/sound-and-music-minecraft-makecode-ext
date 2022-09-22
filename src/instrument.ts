@@ -72,5 +72,7 @@ namespace music {
             case Instrument.Pling: return 'note.pling';
             case Instrument.Harp: return 'note.harp';
         }
+
+        throw `unrecognized instrument ${name}`;
     }
 }
