@@ -4,34 +4,6 @@
 // This needs to map to frequency and not minecraft pitch
 // for compatibility with the "note" field editor
 enum Note {
-    //% blockIdentity=music.noteFrequency enumval=262
-    C = 262,
-    //% block=C#
-    //% blockIdentity=music.noteFrequency enumval=277
-    CSharp = 277,
-    //% blockIdentity=music.noteFrequency enumval=294
-    D = 294,
-    //% blockIdentity=music.noteFrequency enumval=311
-    Eb = 311,
-    //% blockIdentity=music.noteFrequency enumval=330
-    E = 330,
-    //% blockIdentity=music.noteFrequency enumval=349
-    F = 349,
-    //% block=F#
-    //% blockIdentity=music.noteFrequency enumval=370
-    FSharp = 370,
-    //% blockIdentity=music.noteFrequency enumval=392
-    G = 392,
-    //% block=G#
-    //% blockIdentity=music.noteFrequency enumval=415
-    GSharp = 415,
-    //% blockIdentity=music.noteFrequency enumval=440
-    A = 440,
-    //% blockIdentity=music.noteFrequency enumval=466
-    Bb = 466,
-    //% blockIdentity=music.noteFrequency enumval=494
-    B = 494,
-
     //% block=F#3
     //% blockIdentity=music.noteFrequency enumval=185
     FSharp3 = 185,
@@ -97,43 +69,41 @@ namespace music {
      * @param note pitch of the tone to play in Hertz (Hz), eg: Note.C
      * @param instrument instrument to play the note as
      */
-    //% weight=90
-    //% blockId=music_play_note block="play|note $note=note_pitch|on $instrument" blockGap=8
-    //% parts="headphone"
-    //% useEnumVal=1
     //% group="Notes"
-    //% note.defl="262"
-    //% instrument.defl=Instrument.Harp
-    export function playNote(note: Note, instrument: Instrument): void {
-        const soundId: string = instrumentId(instrument);
-        const pitch: string = frequencyToMinecraftPitch(note);
+    //% weight=90 blockGap=8
+    //% blockId=music_play_note block="play|note %note=note_frequency|on %instrument=instrument_id"
+    //% note.shadow="note_frequency"
+    //% instrument.shadow="instrument"
+    export function playNote(note: number, instrument: Instrument): void {
+        const soundId: string = _instrumentMinecraftId(instrument);
+        const pitch: string = _frequencyToMinecraftPitch(note);
         player.execute(`playsound ${soundId} @a ~ ~ ~ ${music.volumeInGameUnits} ${pitch}`)
     }
 
     /**
      * Gets the frequency of a note in Hertz.
-     * @param name the note name
+     * @param note the note name
      */
-    //% weight=50 help=music/note-frequency
-    //% blockId=note_frequency block="%name"
-    //% shim=TD_ID color="#FFFFFF" colorSecondary="#FFFFFF"
+    //% weight=50
+    //% blockId=note_frequency block="$note"
+    //% shim=TD_ID
     //% name.fieldEditor="note" name.defl="262"
     //% name.fieldOptions.decompileLiterals=true
     //% useEnumVal=1
     //% group="Notes"
     //% blockGap=8
-    export function noteFrequency(name: Note): number {
-        return name;
+    export function noteFrequency(note: Note): number {
+        return note;
     }
 
-    export function frequencyToMinecraftPitch(frequencyHz: number): string {
+    export function _frequencyToMinecraftPitch(frequencyHz: number): string {
         // The minecraft note scale runs from F#3 (pitch .5) to F#5 (pitch 2.0).
         const pitch = Math.map(frequencyHz, 185, 740, .5, 2.0);
-        return formatFloatForMinecraftCommand(pitch);
+        return _formatFloatForMinecraftCommand(pitch);
     }
 
     // This is just number.toFixed(3)
-    function formatFloatForMinecraftCommand(input: number): string {
+    function _formatFloatForMinecraftCommand(input: number): string {
         const thousandths = Math.round(input * 1000);
         return `${Math.floor(thousandths / 1000)}.${thousandths % 1000}`;
     }
