@@ -71,10 +71,10 @@ namespace music {
      */
     //% group="Notes"
     //% weight=90 blockGap=8
-    //% blockId=music_play_note block="play|note %note=note_frequency|on %instrument=instrument_id"
-    //% note.shadow="note_frequency"
-    //% instrument.shadow="instrument"
-    export function playNote(note: number, instrument: Instrument): void {
+    //% blockId=minecraft_music_play_note block="play|note %note|on %instrument"
+    //% note.shadow="minecraft_note_frequency"
+    //% instrument.shadow="minecraft_instrument"
+    export function playNote(note: number, instrument: number): void {
         const soundId: string = _instrumentMinecraftId(instrument);
         const pitch: string = _frequencyToMinecraftPitch(note);
         player.execute(`playsound ${soundId} @a ~ ~ ~ ${music.volumeInGameUnits} ${pitch}`)
@@ -85,10 +85,10 @@ namespace music {
      * @param note the note name
      */
     //% weight=50
-    //% blockId=note_frequency block="$note"
+    //% blockId=minecraft_note_frequency block="$note"
     //% shim=TD_ID
-    //% name.fieldEditor="note" name.defl="262"
-    //% name.fieldOptions.decompileLiterals=true
+    //% note.fieldEditor="note" note.defl="262"
+    //% note.fieldOptions.decompileLiterals=true
     //% useEnumVal=1
     //% group="Notes"
     //% blockGap=8
