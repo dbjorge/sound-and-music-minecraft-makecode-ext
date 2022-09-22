@@ -3,41 +3,56 @@
  */
 declare const enum Instrument {
     // default
+    //% jres
     Harp,
-
-    //% jres alias=PLANKS_OAK
+    // wood planks
+    //% jres
     Bass,
+    // sand
     //% block="Snare Drum"
-    //% jres alias=SAND
+    //% jres
     SnareDrum,
     // glass
     //% block="Hi-hat"
+    //% jres
     HiHat,
     // stone
     //% block="Bass Drum"
+    //% jres
     BassDrum,
     // gold block
+    //% jres
     Bell,
     // clay
+    //% jres
     Flute,
     // packed ice
+    //% jres
     Chime,
     // wool
+    //% jres
     Guitar,
     // bone block
+    //% jres
     Xylophone,
     // iron block
+    //% jres
     Vibraphone,
     // soul sand
     //% block="Cow Bell"
+    //% jres
     CowBell,
     // pumpkin
+    //% jres
     Didgeridoo,
     // emerald block
+    //% jres
     Bit,
     // hay bale
+    //% jres
     Banjo,
     // glowstone
+    //% jres
     Pling,
 }
 
@@ -47,7 +62,8 @@ namespace music {
      * @param name the instrument name
      */
     //% weight=49
-    //% blockId=instrument_id block="%name"
+    //% blockId=instrument_id block="$name"
+    //% blockHidden=true
     //% shim=TD_ID color="#FFFFFF" colorSecondary="#FFFFFF"
     //% name.fieldOptions.decompileLiterals=true
     //% useEnumVal=1
