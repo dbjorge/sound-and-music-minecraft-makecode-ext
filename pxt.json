@@ -6,7 +6,6 @@
         "builder": "*"
     },
     "files": [
-        "src/instrument.jres",
         "src/instrument.ts",
         "src/main.blocks",
         "src/music.ts",

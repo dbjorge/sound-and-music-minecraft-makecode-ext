@@ -2,70 +2,57 @@
  * Minecraft instrument types that a note block can emit
  */
 declare const enum Instrument {
-    // default
-    //% jres
+    //% jres=Block.Grass
     Harp,
-    // wood planks
-    //% jres
+    //% jres=Block.PlanksOak
     Bass,
-    // sand
     //% block="Snare Drum"
-    //% jres
+    //% jres=Block.Sand
     SnareDrum,
-    // glass
     //% block="Hi-hat"
-    //% jres
+    //% jres=Block.Glass
     HiHat,
-    // stone
     //% block="Bass Drum"
-    //% jres
+    //% jres=Block.Stone
     BassDrum,
-    // gold block
-    //% jres
+    //% jres=Block.GoldBlock
     Bell,
-    // clay
-    //% jres
+    //% jres=Block.Clay
     Flute,
-    // packed ice
-    //% jres
+    //% jres=Block.PackedIce
     Chime,
-    // wool
-    //% jres
+    //% jres=Block.Wool
     Guitar,
-    // bone block
-    //% jres
+    //% jres=Block.BoneBlock
     Xylophone,
-    // iron block
-    //% jres
+    //% jres=Block.IronBlock
     Vibraphone,
-    // soul sand
     //% block="Cow Bell"
-    //% jres
+    //% jres=Block.SoulSande
     CowBell,
-    // pumpkin
-    //% jres
+    //% jres=Block.Pumpkin
     Didgeridoo,
-    // emerald block
-    //% jres
+    //% jres=Block.EmeraldBlock
     Bit,
-    // hay bale
-    //% jres
+    //% jres=Block.HayBlock
     Banjo,
-    // glowstone
-    //% jres
+    //% jres=Block.Glowstone
     Pling,
 }
 
 namespace music {
     /**
-     * An instrument that can be played on a Minecraft note block
-     * @param instrument the instrument name
+     * Represents an instrument that can be played on a note block
+     * @param name the name of the instrument
      */
-    //% group="Notes" weight=50 blockGap=8
-    //% blockId=instrument block="$instrument"
-    //% shim=TD_ID
-    export function instrument(instrument: Instrument): Instrument {
-        return instrument;
+    //% group="Notes" weight=48
+    //% shim=TD_ID blockId=instrument block="%name"
+    //% name.fieldEditor="gridpicker"
+    //% name.fieldOptions.width=340 name.fieldOptions.columns=8 name.fieldOptions.tooltips=true
+    //% name.fieldOptions.maxRows="2"
+    //% name.fieldOptions.hideRect=true
+    export function instrument(name: Instrument): Instrument {
+        return name;
     }
 
     /**
