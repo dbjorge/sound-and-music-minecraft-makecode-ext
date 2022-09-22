@@ -46,7 +46,7 @@ namespace music {
      * @param name the name of the instrument
      */
     //% group="Notes" weight=48
-    //% shim=TD_ID blockId=instrument block="%name"
+    //% shim=TD_ID blockId=instrument block="instrument %name"
     //% name.fieldEditor="gridpicker"
     //% name.fieldOptions.width=340 name.fieldOptions.columns=8 name.fieldOptions.tooltips=true
     //% name.fieldOptions.maxRows="2"
