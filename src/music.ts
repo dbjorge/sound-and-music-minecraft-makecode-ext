@@ -3,7 +3,7 @@ enum Music {
     Cat = 1,
 }
 
-//% color=#E63022 weight=106 icon="\uf025"
+//% color=#E63022 weight=40 icon="\uf025"
 //% groups='["Music Discs", "Sound", "Notes", "Volume"]'
 namespace music {
     //% block="play game music $music"
