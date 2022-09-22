@@ -58,19 +58,22 @@ declare const enum Instrument {
 
 namespace music {
     /**
-     * Gets the Minecraft ID string representing an instrument.
-     * @param name the instrument name
+     * An instrument that can be played on a Minecraft note block
+     * @param instrument the instrument name
      */
-    //% weight=49
-    //% blockId=instrument_id block="$name"
-    //% blockHidden=true
-    //% shim=TD_ID color="#FFFFFF" colorSecondary="#FFFFFF"
-    //% name.fieldOptions.decompileLiterals=true
-    //% useEnumVal=1
-    //% group="Tone"
-    //% blockGap=8
-    export function instrumentId(name: Instrument): string {
-        switch (name) {
+    //% group="Notes" weight=50 blockGap=8
+    //% blockId=instrument block="$instrument"
+    //% shim=TD_ID
+    export function instrument(instrument: Instrument): Instrument {
+        return instrument;
+    }
+
+    /**
+     * Gets the Minecraft ID string representing an instrument.
+     * @param instrument the instrument
+     */
+    export function _instrumentMinecraftId(instrument: Instrument): string {
+        switch (instrument) {
             case Instrument.Bass: return 'note.bass';
             case Instrument.SnareDrum: return 'note.snare';
             case Instrument.HiHat: return 'note.hat';
@@ -89,6 +92,6 @@ namespace music {
             case Instrument.Harp: return 'note.harp';
         }
 
-        throw `unrecognized instrument ${name}`;
+        throw `unrecognized instrument ${instrument}`;
     }
 }
