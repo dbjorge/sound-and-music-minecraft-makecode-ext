@@ -28,7 +28,7 @@ declare const enum Instrument {
     //% jres=Block.IronBlock
     Vibraphone,
     //% block="Cow Bell"
-    //% jres=Block.SoulSande
+    //% jres=Block.SoulSand
     CowBell,
     //% jres=Block.Pumpkin
     Didgeridoo,
