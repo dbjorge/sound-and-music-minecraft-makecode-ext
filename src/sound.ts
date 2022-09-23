@@ -110,7 +110,7 @@ namespace music {
             case Sound.FireworkLarge: return 'firework.large_blast';
             case Sound.FireworkTwinkle: return 'firework.twinkle';
             case Sound.Fizz: return 'random.fizz';
-            case Sound.Fuse: return 'random.fuze';
+            case Sound.Fuse: return 'random.fuse';
             case Sound.Ghast: return 'mob.ghast.affectionate_scream';
             case Sound.Horse: return 'mob.horse.angry';
             case Sound.Hurt: return 'random.hurt';
