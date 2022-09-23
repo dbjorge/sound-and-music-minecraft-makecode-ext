@@ -74,7 +74,7 @@ enum Sound {
 namespace music {
     /**
      * Plays a Minecraft game sound.
-     * @param sound the sound to play, eg: Sound.CatMeow
+     * @param sound the sound to play, eg: Sound.Blaze
      */
     //% weight=90
     //% blockId=sound_play_sound block="play|sound $sound" blockGap=8
@@ -82,7 +82,7 @@ namespace music {
     //% useEnumVal=1
     //% group="Sound"
     export function playSound(sound: Sound): void {
-        player.execute(`playsound ${minecraftSoundId(sound)} @a ~ ~ ~ ${music.volumeInGameUnits} 0.7`)
+        player.execute(`playsound ${minecraftSoundId(sound)} @a ~ ~ ~ ${music.volumeInGameUnits}`)
     }
 
     function minecraftSoundId(sound: Sound) {
